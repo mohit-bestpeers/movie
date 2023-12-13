@@ -6,7 +6,7 @@
     <% @movies.each do |movie| %>
       <div class="movie"> 
        <a href="/movies/<%= movie.id %>">
-        <%=image_tag movie.image ,class: "style_image" %> 
+        <%=image_tag movie.image ,class: "style_image"  if movie.image.attached? %> 
         </a>
         <h5 class="card-title">Movie : <%=movie.name%></h5>
         <h6><p class="card-text">Type :<%= movie.category.name %></p></h6>

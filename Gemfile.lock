@@ -165,6 +165,7 @@ GEM
     nokogiri (1.15.2-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pg (1.5.4)
     popper_js (1.16.1)
     public_suffix (5.0.1)
     puma (5.6.5)
@@ -310,6 +311,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jquery-rails
+  pg (~> 1.2)
   puma (~> 5.0)
   rails (~> 7.0.5)
   rails-controller-testing
@@ -324,7 +326,6 @@ DEPENDENCIES
   tzinfo-data
   web-console
   webdrivers
-  will_paginate
   will_paginate-bootstrap-style
 
 RUBY VERSION
