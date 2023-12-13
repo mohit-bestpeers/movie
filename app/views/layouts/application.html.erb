@@ -16,31 +16,32 @@
   <body>
   <header class="border nav1 p-3">
   <div class="container">
+    <% url = request.env['HTTP_HOST'] == "127.0.0.1:3000" ? "http://127.0.0.1:3000" : "https://movie-buzz.onrender.com" %>
 
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
        
-        <li ><a href="http://127.0.0.1:3000/#" class="nav-link link-warning px-2 text-white click mt-1">Home</a></li>
-        <li><a href="http://127.0.0.1:3000/?filter=upcomming" class="nav-link link-warning px-2 text-white  mt-1">Upcommig Movies </a></li>
-        <li><a href="http://127.0.0.1:3000/?filter=popular" class="nav-link link-warning px-2 text-white  mt-1">Popular Movies</a></li>  
+        <li ><a href="#{url}/#" class="nav-link link-warning px-2 text-white click mt-1">Home</a></li>
+        <li><a href="#{url}/?filter=upcomming" class="nav-link link-warning px-2 text-white  mt-1">Upcommig Movies </a></li>
+        <li><a href="#{url}/?filter=popular" class="nav-link link-warning px-2 text-white  mt-1">Popular Movies</a></li>  
         <li class="nav-item dropdown">
             <a class="nav-link link-warning px-2 text-white dropdown-toggle  mt-1" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Category
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="http://127.0.0.1:3000/category/?category=Hollywood">Hollywood</a>
-              <a class="dropdown-item" href="http://127.0.0.1:3000/category/?category=Bollywood">Bollywood</a>
-              <a class="dropdown-item" href="http://127.0.0.1:3000/category/?category=Action">Action</a>
-              <a class="dropdown-item" href="http://127.0.0.1:3000/category/?category=Comedy">Comedy</a>
-              <a class="dropdown-item" href="http://127.0.0.1:3000/category/?category=Romance">Romance</a>
+              <a class="dropdown-item" href="#{url}/category/?category=Hollywood">Hollywood</a>
+              <a class="dropdown-item" href="#{url}/category/?category=Bollywood">Bollywood</a>
+              <a class="dropdown-item" href="#{url}/category/?category=Action">Action</a>
+              <a class="dropdown-item" href="#{url}/category/?category=Comedy">Comedy</a>
+              <a class="dropdown-item" href="#{url}/category/?category=Romance">Romance</a>
             </div>
           </li>
           
-        <li><a href="http://127.0.0.1:3000/about" class="nav-link link-warning px-2 text-white  mt-1 mx-2 ">About</a></li>
+        <li><a href="#{url}/about" class="nav-link link-warning px-2 text-white  mt-1 mx-2 ">About</a></li>
         <% if user_signed_in? && current_user.admin? %>
           <li class="nav-item">
-            <a href="http://127.0.0.1:3000/movies/new" class="nav-link link-warning px-2 text-white me-md-2  mt-1">New Article</a>
+            <a href="#{url}/movies/new" class="nav-link link-warning px-2 text-white me-md-2  mt-1">New Article</a>
           </li>
         <% end %>  
         <%= form_tag search_path, :method => 'get', class: 'col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3'  do %>
@@ -49,11 +50,11 @@
 
         <div class="text-end">
           <% if user_signed_in? %> 
-            <button type="button" class="btn btn-outline-warning me-2  "><a href="http://127.0.0.1:3000/users/edit" class="nav-link link-warning px-2 text-white">Edit Info</a></button>
-            <button type="button" class="btn me-2 btn-outline-warning"><a href="http://127.0.0.1:3000/users/sign_out" class="nav-link link-warning px-2 text-white">Logout</a></button>
+            <button type="button" class="btn btn-outline-warning me-2  "><a href="#{url}/users/edit" class="nav-link link-warning px-2 text-white">Edit Info</a></button>
+            <button type="button" class="btn me-2 btn-outline-warning"><a href="#{url}/users/sign_out" class="nav-link link-warning px-2 text-white">Logout</a></button>
             <% else %>
-            <button type="button" class="btn me-2  btn-outline-warning "><a href="http://127.0.0.1:3000/users/sign_in" class="nav-link link-warning px-2 text-white">Login</a></button> 
-            <button type="button" class="btn me-2  btn-outline-warning"><a href="http://127.0.0.1:3000/users/sign_up" class="nav-link link-warning px-2 text-white">Sign up</a></button> 
+            <button type="button" class="btn me-2  btn-outline-warning "><a href="#{url}/users/sign_in" class="nav-link link-warning px-2 text-white">Login</a></button> 
+            <button type="button" class="btn me-2  btn-outline-warning"><a href="#{url}/users/sign_up" class="nav-link link-warning px-2 text-white">Sign up</a></button> 
           <% end %>
       </ul>
         </div>
