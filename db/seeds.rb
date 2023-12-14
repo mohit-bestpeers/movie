@@ -9,8 +9,10 @@
     User.create(email:"admin@gmail.com", password: "admin@123", name: "Admin", role: "admin")
   end
  category1 = Category.find_or_create_by(name: "Bollywood")
- category2 = Category.find_or_create_by(name: "Hollywood")
- category3 = Category.find_or_create_by(name: "Tollywood")
+ category2 = Category.find_or_create_by(name: "Action")
+ category3 = Category.find_or_create_by(name: "Comedy")
+ category4 = Category.find_or_create_by(name: "Romance")
+ category5 = Category.find_or_create_by(name: "Hollywood")
 
  movies_data = [
   {
